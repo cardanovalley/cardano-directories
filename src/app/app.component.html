@@ -1,0 +1,9 @@
+<h1>{{ title }}</h1>
+<h2> An internet site where hiperlinks don't work...</h2>
+<div style="text-align:left">
+    <ul *ngFor="let item of storeList">
+        <li>
+            <h3>Store Name: {{ item.name }}, Country: {{ item.country }}, Website: {{ item.website }}</h3>
+        </li>
+    </ul>
+</div>

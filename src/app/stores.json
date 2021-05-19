@@ -1,0 +1,29 @@
+[
+    {
+        "name": "Pizza Hut",
+        "picture": "store1.jpg",
+        "country": "Brasil",
+        "state": "RJ",
+        "googlemaps": "",
+        "website": "http://www.pizzahut.com",
+        "address": "Av. Na Costa 2563"
+    },
+    {
+        "name": "Arduino Store",
+        "picture": "store2.jpg",
+        "country": "Italia",
+        "state": "",
+        "googlemaps": "",
+        "website": "http://www.arduino-store.com",
+        "address": "Av. Positana 345"
+    },
+    {
+        "name": "Lenovo Store NY",
+        "picture": "store3.jpg",
+        "country": "United States",
+        "state": "NY",
+        "googlemaps": "",
+        "website": "http://www.lenovo.com",
+        "address": "5th Av. 2020"
+    }
+]
