@@ -565,7 +565,6 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 }
 .close-btn {
     color: #f63138;
-    text-transform: capitalize;
 }
 .close-btn.open-btn {color: #00c437;}
 .explore-map-icon{text-align: right;}

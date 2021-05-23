@@ -2,6 +2,11 @@ import { Component } from '@angular/core';
 import stores from './stores.json';
 
 
+interface Store {
+  name: string,
+  country: string,
+  website: string
+}
 
 @Component({
   selector: 'app-root',
@@ -10,9 +15,5 @@ import stores from './stores.json';
 })
 export class AppComponent {
   title = 'Ada and Friends - Business Directory';
-  public storeList: {
-    name: string,
-    country: string,
-    website: string
-  }[] = stores;
+  public storeList: Store[] = stores;
 }
