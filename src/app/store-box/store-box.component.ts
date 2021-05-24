@@ -11,13 +11,17 @@ export class StoreBoxComponent implements OnInit {
   @Input() store!: {
     name: string,
     country: string,
-    website: string
+    state: string
+    website: string,
+    picture: string,
+    googlemaps: string
   }; // TODO: Import this from an external interface.
 
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

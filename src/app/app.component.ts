@@ -5,7 +5,10 @@ import stores from './stores.json';
 interface Store {
   name: string,
   country: string,
-  website: string
+  state: string,
+  website: string,
+  picture: string,
+  googlemaps: string
 }
 
 @Component({

@@ -439,7 +439,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 --------------------------------------*/
 .explore{
     padding:117px 0 95px;
-    background: #f8fafb;
+    background: #f8afb;
 }
 .explore-content{margin-top: 78px;}
 
@@ -565,6 +565,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 }
 .close-btn {
     color: #f63138;
+    text-transform: capitalize;
 }
 .close-btn.open-btn {color: #00c437;}
 .explore-map-icon{text-align: right;}
