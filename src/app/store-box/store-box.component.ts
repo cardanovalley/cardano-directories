@@ -12,6 +12,7 @@ export class StoreBoxComponent implements OnInit {
     name: string,
     country: string,
     state: string
+    address: string
     website: string,
     picture: string,
     googlemaps: string
