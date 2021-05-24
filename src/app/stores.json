@@ -1,6 +1,6 @@
 [
     {
-        "name": "Pizza Hut",
+        "name": "pizza hut",
         "picture": "assets/images/explore/pizza_hut.webp",
         "country": "Brasil",
         "state": "RJ",
@@ -33,6 +33,6 @@
         "state": "Stuttgart",
         "googlemaps": "https://goo.gl/maps/4f4xwYD2Ao2UnFJB8",
         "website": "http://www.tesla.com",
-        "address": "Dorotheenplatz 1, 70173 "
+        "address": "Dorotheenplatz 1"
     }
 ]
