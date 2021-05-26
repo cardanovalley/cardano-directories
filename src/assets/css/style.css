@@ -567,7 +567,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     color: #f63138;
     text-transform: capitalize;
 }
-.close-btn.open-btn {color: #6f16ff;}
+.close-btn.open-btn {color: #5b11d1;}
 .explore-map-icon{text-align: right;}
 .explore-map-icon a svg {
     width: 12px;
@@ -880,7 +880,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 }
 .footer-social a ,.footer-social span {
     display: inline-block;
-    color: #7b1bca;
+    color: #5b11d1;
     font-size: 14px;
     margin-left: 15px;
     -webkit-transition: .3s; 
@@ -898,8 +898,8 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     border-radius: 50%;
 }
 .footer-social span {margin-right:15px;margin-left: 0;color: #a5adb3;}
-.footer-social span:hover{color: #ff545a;}
-.footer-social a:hover {background:#ff545a;color: #fff;}
+.footer-social span:hover{color: #5b11d1;}
+.footer-social a:hover {background:#5b11d1;color: #fff;}
 
 /*===============================
     Scroll Top
@@ -916,8 +916,8 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     font-size: 20px;
     cursor: pointer;
     color: #fff;
-    background:#ff545a;
-	border:1px solid #ff545a;
+    background:#4d4d4d;
+	border:1px solid #4d4d4d;
 	border-radius:50%;
 	-webkit-transition: .5s; 
 	-moz-transition:.5s; 
@@ -927,8 +927,8 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 	z-index: 2;
 }
 #scroll-Top  .return-to-top:hover {
-    background:#f43032;
-	border:1px solid #ff545a;
+    background:#5b11d1;
+	border:1px solid #5b11d1;
 }
 
 #scroll-Top  .return-to-top i{
