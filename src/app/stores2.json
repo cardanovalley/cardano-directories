@@ -1,9 +1,9 @@
 [
     {
         "name": "Tesla Motors 1",
-        "picture": "assets/images/explore/tall-banner.jpg",
+        "picture": "assets/images/explore/tesla.jpg",
         "country": "Germany",
-        "state": "",
+        "state": "Stuttgart",
         "googlemaps": "https://goo.gl/maps/4f4xwYD2Ao2UnFJB8",
         "website": "http://www.tesla.com",
         "address": "Dorotheenplatz 1 sadas adsads eff saas asdfasda saddad adad asdada adad "
@@ -12,14 +12,14 @@
         "name": "Tesla Motors 2",
         "picture": "assets/images/explore/tesla.jpg",
         "country": "Germany",
-        "state": "e",
+        "state": "Stuttgart",
         "googlemaps": "https://goo.gl/maps/4f4xwYD2Ao2UnFJB8",
         "website": "http://www.tesla.com",
-        "address": "Dorotheenplatz 1 sadas adsads eff saas asdfasda saddad adad asdada adad "
+        "address": "Dorotheenplatz 1"
     },
     {
         "name": "Tesla Motors 3",
-        "picture": "assets/images/explore/person.png",
+        "picture": "assets/images/explore/tesla.jpg",
         "country": "Germany",
         "state": "",
         "googlemaps": "https://goo.gl/maps/4f4xwYD2Ao2UnFJB8",
@@ -28,7 +28,7 @@
     },
     {
         "name": "Tesla Motors 4",
-        "picture": "assets/images/explore/counter-banner.jpg",
+        "picture": "assets/images/explore/tesla.jpg",
         "country": "Germany",
         "state": "Stuttgart",
         "googlemaps": "https://goo.gl/maps/4f4xwYD2Ao2UnFJB8",
@@ -37,7 +37,7 @@
     },
     {
         "name": "Tesla Motors 5",
-        "picture": "assets/images/explore/banner.jpg",
+        "picture": "assets/images/explore/tesla.jpg",
         "country": "Germany",
         "state": "Stuttgart",
         "googlemaps": "https://goo.gl/maps/4f4xwYD2Ao2UnFJB8",
@@ -46,7 +46,7 @@
     },
     {
         "name": "Tesla Motors 6",
-        "picture": "assets/images/explore/e1.jpg",
+        "picture": "assets/images/explore/tesla.jpg",
         "country": "Germany",
         "state": "Stuttgart",
         "googlemaps": "https://goo.gl/maps/4f4xwYD2Ao2UnFJB8",
@@ -55,7 +55,7 @@
     },
     {
         "name": "Tesla Motors 7",
-        "picture": "assets/images/explore/lenovo.jpg",
+        "picture": "assets/images/explore/tesla.jpg",
         "country": "Germany",
         "state": "Stuttgart",
         "googlemaps": "https://goo.gl/maps/4f4xwYD2Ao2UnFJB8",
