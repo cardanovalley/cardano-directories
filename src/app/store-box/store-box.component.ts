@@ -17,6 +17,7 @@ export class StoreBoxComponent implements OnInit {
     picture: string,
     googlemaps: string
   }; // TODO: Import this from an external interface.
+  @Input() index!: number;
 
 
   constructor() { }
