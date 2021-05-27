@@ -9,9 +9,10 @@
 					<p>Find stores that accept ADA coin, the Cardano Blockchain coin</p>
 				</div><!--/.section-header-->
 				<div class="explore-content">
-					<div class="row align-">
+					<div class="row">
 
-						<app-store-box *ngFor="let item of storeList" [store]="item"></app-store-box>	
+						<app-store-box *ngFor="let item of storeList; let indexOfStore=index" [store]="item" 
+						[index]="indexOfStore"></app-store-box>	
 
 					</div>
 				</div>
