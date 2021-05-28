@@ -1,0 +1,101 @@
+[
+    {
+        "name": "Tesla Motors 1",
+        "picture": "assets/images/explore/tall-banner.jpg",
+        "country": "Germany",
+        "state": "",
+        "googlemaps": "https://goo.gl/maps/4f4xwYD2Ao2UnFJB8",
+        "website": "http://www.tesla.com",
+        "address": "Dorotheenplatz 1 sadas adsads eff saas asdfasda saddad adad asdada adad "
+    },
+    {
+        "name": "Tesla Motors 2",
+        "picture": "assets/images/explore/tesla.jpg",
+        "country": "Germany",
+        "state": "Berlin",
+        "googlemaps": "https://goo.gl/maps/4f4xwYD2Ao2UnFJB8",
+        "website": "http://www.tesla.com",
+        "address": "Dorotheenplatz 1 sadas adsads eff saas asdfasda saddad adad asdada adad "
+    },
+    {
+        "name": "Tesla Motors 3",
+        "picture": "assets/images/explore/person.png",
+        "country": "Germany",
+        "state": "",
+        "googlemaps": "https://goo.gl/maps/4f4xwYD2Ao2UnFJB8",
+        "website": "http://www.tesla.com",
+        "address": "Dorotheenplatz 1 sadas ada adad "
+    },
+    {
+        "name": "Tesla Motors 4",
+        "picture": "assets/images/explore/counter-banner.jpg",
+        "country": "Germany",
+        "state": "Stuttgart",
+        "googlemaps": "https://goo.gl/maps/4f4xwYD2Ao2UnFJB8",
+        "website": "http://www.tesla.com",
+        "address": "Dorotheenplatz 1 sadas adsads eff saas asdfasda saddad adad asdada adad "
+    },
+    {
+        "name": "Tesla Motors 5",
+        "picture": "assets/images/explore/banner.jpg",
+        "country": "Germany",
+        "state": "Stuttgart",
+        "googlemaps": "https://goo.gl/maps/4f4xwYD2Ao2UnFJB8",
+        "website": "http://www.tesla.com",
+        "address": "Dorotheenplatz 1 sadas adsads eff saas asdfasda saddad adad asdada adad eff saas asdfasda saddad adad asdada adad "
+    },
+    {
+        "name": "Tesla Motors 6",
+        "picture": "assets/images/explore/e1.jpg",
+        "country": "Germany",
+        "state": "Stuttgart",
+        "googlemaps": "https://goo.gl/maps/4f4xwYD2Ao2UnFJB8",
+        "website": "http://www.tesla.com",
+        "address": "Dorotheenplatz 1 sadas adsads eff saas asdfasda saddad adad asdada adad "
+    },
+    {
+        "name": "Tesla Motors 7",
+        "picture": "assets/images/explore/lenovo.jpg",
+        "country": "Germany",
+        "state": "Stuttgart",
+        "googlemaps": "https://goo.gl/maps/4f4xwYD2Ao2UnFJB8",
+        "website": "http://www.tesla.com",
+        "address": "Dorotheenplatz 1 sadas adsads eff saas asdfasda saddad adad asdada adad "
+    },
+    {
+        "name": "Tesla Motors 8",
+        "picture": "assets/images/explore/tesla.jpg",
+        "country": "Germany",
+        "state": "Stuttgart",
+        "googlemaps": "https://goo.gl/maps/4f4xwYD2Ao2UnFJB8",
+        "website": "http://www.tesla.com",
+        "address": "Dorotheenplatz 1 sadas adsads eff saas asdfasda saddad adad asdada adad "
+    },
+    {
+        "name": "Tesla Motors 9",
+        "picture": "assets/images/explore/tesla.jpg",
+        "country": "Germany",
+        "state": "Stuttgart",
+        "googlemaps": "https://goo.gl/maps/4f4xwYD2Ao2UnFJB8",
+        "website": "http://www.tesla.com",
+        "address": "Dorotheenplatz 1 sadas adsads eff saas asdfasda saddad adad asdada adad "
+    },
+    {
+        "name": "Tesla Motors 10",
+        "picture": "assets/images/explore/tesla.jpg",
+        "country": "Germany",
+        "state": "Stuttgart",
+        "googlemaps": "https://goo.gl/maps/4f4xwYD2Ao2UnFJB8",
+        "website": "http://www.tesla.com",
+        "address": "Dorotheenplatz 1 sadas adsads eff saas asdfasda saddad adad asdada adad "
+    },
+    {
+        "name": "Tesla Motors 11",
+        "picture": "assets/images/explore/tesla.jpg",
+        "country": "Germany",
+        "state": "Stuttgart",
+        "googlemaps": "https://goo.gl/maps/4f4xwYD2Ao2UnFJB8",
+        "website": "http://www.tesla.com",
+        "address": "Dorotheenplatz 1 sadas adsads eff saas asdfasda saddad adad asdada adad "
+    }
+]

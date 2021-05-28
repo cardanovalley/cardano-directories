@@ -231,11 +231,11 @@ nav.navbar.bootsnav ul.nav > li.dropdown span {
 nav.navbar.bootsnav .navbar-toggle {
     position: relative;
     background-color: transparent;
-    border: 1px solid #ff545a;
+    border: 1px solid #fff;
     padding: 10px;
     top: 0;
 }
-nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
+nav.navbar.bootsnav .navbar-toggle i{color: #fff}
 /*.navbar-toggle */
 
 /*-------------------------------------
