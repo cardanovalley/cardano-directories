@@ -172,7 +172,7 @@ nav.navbar.bootsnav {
     background-color:black;
     border-bottom: transparent;
 }
-.wrap-sticky nav.navbar.bootsnav.sticked {background-color: black;box-shadow: 0 5px 5px rgba(0,0,0,.4);}
+.wrap-sticky nav.navbar.bootsnav.sticked {background-color: black;box-shadow: 0 3px 5px rgba(0,0,0,.4);}
 
 /*.navbar-brand*/
 .navbar-header a.navbar-brand,.navbar-header a.navbar-brand:hover,.navbar-header a.navbar-brand:focus {
