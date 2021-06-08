@@ -8,6 +8,15 @@
 font-family: 'Roboto', sans-serif;
 ==================================== */
 
+@font-face {
+    font-family: ClashDisplay-Variable;
+    src: url("../fonts/ClashDisplay-Variable.ttf") format('truetyupe'),
+         url("../fonts/ClashDisplay-Variable.woff") format('woff'),
+         url("../fonts/ClashDisplay-Variable.woff2") format('woff2');
+         font-weight: 200 700;
+         font-display: swap;
+         font-style: normal;
+}
 
 /*=========== TABLE OF CONTENTS ===========
 1.  General css (Reset code)
@@ -171,6 +180,7 @@ html,body{height: 100%;}
 nav.navbar.bootsnav {
     background-color:black;
     border-bottom: transparent;
+    font-family: ClashDisplay-Variable;
 }
 .wrap-sticky nav.navbar.bootsnav.sticked {background-color: black;box-shadow: 0 3px 5px rgba(0,0,0,.4);}
 
@@ -192,7 +202,7 @@ nav.navbar.bootsnav {
 nav.navbar.bootsnav ul.nav > li > a {
     color: white;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     text-transform:uppercase;
     -webkit-transition: 0.3s linear; 
     -moz-transition: 0.3s linear; 
@@ -844,7 +854,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: white;}
 /*-------------------------------------
         12. Footer
 --------------------------------------*/
-.footer-menu {padding: 45px 0; background-color: black;  /*Agregado*/}
+.footer-menu {padding: 45px 0; background-color: #333333; font-family: ClashDisplay-Variable; /*Agregado*/}
 .footer-menu .navbar-header{padding:0; }
 .footer-menu .navbar-header a.navbar-brand,.footer-menu.footer-menu .navbar-header a.navbar-brand:hover,.footer-menu .navbar-header a.navbar-brand:focus{
     padding:0;
