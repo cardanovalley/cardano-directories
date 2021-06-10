@@ -201,7 +201,7 @@ nav.navbar.bootsnav {
 /*.nav li*/
 nav.navbar.bootsnav ul.nav > li > a {
     color: white;
-    font-size: 14px;
+    font-size: 16.8px;
     font-weight: 600;
     font-style: normal;
     line-height: 19px;
@@ -244,7 +244,6 @@ nav.navbar.bootsnav ul.nav > li.dropdown span {
 nav.navbar.bootsnav .navbar-toggle {
     position: relative;
     background-color: transparent;
-    border: 1px solid white;
     padding: 10px;
     top: 0;
 }

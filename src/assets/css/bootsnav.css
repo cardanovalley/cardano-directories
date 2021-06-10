@@ -474,7 +474,7 @@ nav.navbar.bootsnav.no-background{
 /* Navbar Sticky
 =================================*/
 .wrap-sticky{
-    position: relative;
+    position: static;
     -webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
@@ -1007,8 +1007,8 @@ body.on-side .wrap-sticky nav.navbar.bootsnav.sticked{
     
     nav.navbar.bootsnav .navbar-toggle {
         display: inline-block;
-        float: left;
-        margin-right: -200px;
+        float: right;
+        margin-right: 10px;
         margin-top: 10px;
     }
     
