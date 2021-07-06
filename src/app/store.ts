@@ -5,5 +5,5 @@ export interface Store {
     address: string,
     website: string,
     picture: string,
-    googlemaps: string
+    googlemaps_link: string
 }
