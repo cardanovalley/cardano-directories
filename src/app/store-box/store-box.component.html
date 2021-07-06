@@ -11,12 +11,11 @@
                  <div class="row">
                     <div class="col-sm-10">
                         <div class="explore-rating-price">
-                            <a href="{{ store.googlemaps}}" target="_blank" rel="noopener noreferrer">{{ store.address }}</a>
+                            <a href="{{ store.googlemaps_link}}" target="_blank" rel="noopener noreferrer">
+                                <p *ngIf="store.state; else elseBlock">{{ store.address }}, {{ store.state}}</p>
+                                <ng-template #elseBlock>{{ store.address }}</ng-template></a>
                             <br>
-                            <a href="{{ store.googlemaps}}" target="_blank" rel="noopener noreferrer"> 
-                                <p *ngIf="store.state; else elseBlock">{{ store.state }}, {{ store.country }}</p>
-                                <ng-template #elseBlock> {{ store.country }} </ng-template>
-                            </a>
+                            <a href="{{ store.googlemaps_link}}" target="_blank" rel="noopener noreferrer">{{ store.country }}</a>
                         </div>
                     </div>
                 </div>
@@ -30,7 +29,7 @@
                     </div>                    
                     <div class="col-xs-7">
                         <div class="explore-map-icon">
-                            <a href="{{ store.googlemaps }}" target="_blank" rel="noopener noreferrer"><i data-feather="map-pin"></i></a>
+                            <a href="{{ store.googlemaps_link }}" target="_blank" rel="noopener noreferrer"><i data-feather="map-pin"></i></a>
                         </div>
                     </div>
                 </div>

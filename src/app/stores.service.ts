@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { Store } from './store'
 import stores from './stores.json';
 
@@ -8,11 +10,13 @@ import stores from './stores.json';
 })
 export class StoresService {
 
-  public storeList: Store[] = stores;
+  private storeList: Store[] = stores;
 
   getStores(): Store[] {
     return this.storeList;
   }
 
-  constructor() { }
+  constructor(
+    private http: HttpClient) { }
+
 }

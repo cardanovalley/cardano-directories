@@ -3,8 +3,7 @@
         "name": "activity tours",
         "picture": "assets/images/explore/activity-tours.png",
         "country": "Greece",
-        "state": "",
-        "googlemaps": "https://goo.gl/maps/QJ3hZi5yk4ZnreWv7",
+        "googlemaps_link": "https://goo.gl/maps/QJ3hZi5yk4ZnreWv7",
         "website": "https://www.activity-tours.com/",
         "address": "Filolaou 124, Athens"
     },
@@ -12,8 +11,7 @@
         "name": "Hotel Palm Royal Naha",
         "picture": "assets/images/explore/palm-royal-naha.jpg",
         "country": "japan",
-        "state": "",
-        "googlemaps": "https://goo.gl/maps/22C6UAVL4BtbQsBz7",
+        "googlemaps_link": "https://goo.gl/maps/22C6UAVL4BtbQsBz7",
         "website": "http://palmroyal.co.jp/",
         "address": "Okinawa Prefecture Naha City Makishi 3-9-10"
     },
@@ -21,17 +19,16 @@
         "name": "Rogue Origin - CBD Products",
         "picture": "assets/images/explore/rogue-origin.png",
         "country": "United States",
-        "state": "",
-        "googlemaps": "https://goo.gl/maps/ZE1HRdhYruNxiqd39",
+        "state": "Oregon",
+        "googlemaps_link": "https://goo.gl/maps/ZE1HRdhYruNxiqd39",
         "website": "https://rogueorigin.com/",
-        "address": "Rogue Valley, Oregon"
+        "address": "Rogue Valley"
     },
     {
         "name": "Pita Barcelona - Luxury Fashion",
         "picture": "assets/images/explore/pita-barcelona.png",
         "country": "Spain",
-        "state": "",
-        "googlemaps": "https://goo.gl/maps/pTpmY1ct8m8Ck1MX7",
+        "googlemaps_link": "https://goo.gl/maps/pTpmY1ct8m8Ck1MX7",
         "website": "http://www.pita.es",
         "address": "Avinguda Meridiana 223"
     },
@@ -39,8 +36,7 @@
         "name": "Travala.com",
         "picture": "assets/images/explore/travala.png",
         "country": "England",
-        "state": "",
-        "googlemaps": "https://goo.gl/maps/J5ThPHFTj85ywuEaA",
+        "googlemaps_link": "https://goo.gl/maps/J5ThPHFTj85ywuEaA",
         "website": "http://www.travala.com",
         "address": "Chorley, Lancashire"
     },
@@ -48,8 +44,7 @@
         "name": "GamerAll.com",
         "picture": "assets/images/explore/gamerall.com.png",
         "country": "",
-        "state": "",
-        "googlemaps": "https://goo.gl/maps/HVSzLLwtEfoETiMh6",
+        "googlemaps_link": "https://goo.gl/maps/HVSzLLwtEfoETiMh6",
         "website": "http://www.gamerall.com",
         "address": "Steam Community"
     },
@@ -57,17 +52,16 @@
         "name": "Plan It Green Printing",
         "picture": "assets/images/explore/plan-it.png",
         "country": "United States",
-        "state": "Los Angeles, CA 90041",
-        "googlemaps": "https://goo.gl/maps/hTCMB67oLT8dQ93JA",
+        "state": "California",
+        "googlemaps_link": "https://goo.gl/maps/hTCMB67oLT8dQ93JA",
         "website": "https://planitgreenprinting.org",
-        "address": "7435 Figueroa Street #502"
+        "address": "7435 Figueroa Street #502, Los Angeles 90041"
     },
     {
         "name": "Gabriel La Torre - Web Developer",
         "picture": "assets/images/explore/gabolato.png",
         "country": "Argentina",
-        "state": "",
-        "googlemaps": "https://goo.gl/maps/gm6oeGc4NYUsVZVaA",
+        "googlemaps_link": "https://goo.gl/maps/gm6oeGc4NYUsVZVaA",
         "website": "http://latorregabriel.com/",
         "address": "City of Buenos Aires"
     },
@@ -75,8 +69,7 @@
         "name": "Nicolas Oyarzabal- Web Developer",
         "picture": "assets/images/explore/nicky-eng.png",
         "country": "Denmark",
-        "state": "",
-        "googlemaps": "https://goo.gl/maps/WzXGwz6twFTRRHKD7",
+        "googlemaps_link": "https://goo.gl/maps/WzXGwz6twFTRRHKD7",
         "website": "https://www.linkedin.com/in/noyarzab/",
         "address": "Copenhagen"
     },
@@ -84,8 +77,7 @@
         "name": "Gina Moda",
         "picture": "assets/images/explore/ginamoda.png",
         "country": "Argentina",
-        "state": "",
-        "googlemaps": "https://goo.gl/maps/gm6oeGc4NYUsVZVaA",
+        "googlemaps_link": "https://goo.gl/maps/gm6oeGc4NYUsVZVaA",
         "website": "https://www.instagram.com/ginamodaes/",
         "address": "City of Buenos Aires"
     }

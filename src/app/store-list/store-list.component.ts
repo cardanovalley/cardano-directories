@@ -6,7 +6,7 @@ import { StoresService } from '../stores.service';
 @Component({
   selector: 'app-store-list',
   templateUrl: './store-list.component.html',
-  styleUrls: ['./store-list.component.css']
+  styleUrls: ['./store-list.component.css'],
 })
 export class StoreListComponent implements OnInit {
 

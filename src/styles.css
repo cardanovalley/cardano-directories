@@ -135,3 +135,17 @@ nav.navbar.bootsnav.no-full .navbar-collapse {
 nav.navbar.bootsnav .navbar-collapse.collapse.in {
     padding-bottom: 0px;
 }
+
+.add-your-store a{
+    color:#777f85;
+    font-family: 'Poppins';
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: normal;
+    line-height: 19px;
+    text-decoration-line: none;
+    text-decoration-style: solid;
+    padding: 30px;
+    text-transform: uppercase;
+}
