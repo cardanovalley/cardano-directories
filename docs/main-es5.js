@@ -356,6 +356,7 @@
       /* harmony import */
 
 
+
       var _app_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ./app-routing.module */
       "vY5A");
@@ -369,6 +370,7 @@
 
 
       var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+
       /*! @angular/core */
       "fXoL");
 
@@ -380,13 +382,15 @@
         return new (t || AppModule)();
       };
 
+
       AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdefineNgModule"]({
         type: AppModule,
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
       });
       AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdefineInjector"]({
+
         providers: [],
-        imports: [[_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"]]]
+        imports: [[_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"]]]
       });
 
       (function () {
@@ -396,7 +400,6 @@
         });
       })();
       /***/
-
     },
 
     /***/
@@ -813,6 +816,7 @@
     },
 
     /***/
+
     "vY5A":
     /*!***************************************!*\
       !*** ./src/app/app-routing.module.ts ***!
@@ -890,6 +894,7 @@
     },
 
     /***/
+
     "zUnb":
     /*!*********************!*\
       !*** ./src/main.ts ***!
