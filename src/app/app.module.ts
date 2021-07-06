@@ -8,6 +8,7 @@ import { StoreListComponent } from './store-list/store-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AddStoreComponent } from './add-store/add-store.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,6 @@ import { AddStoreComponent } from './add-store/add-store.component';
   imports: [
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
