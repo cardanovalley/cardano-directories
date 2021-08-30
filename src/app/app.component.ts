@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-import { Store } from './store';
 import { StoresService } from './stores.service';
 
 
@@ -11,17 +10,9 @@ import { StoresService } from './stores.service';
 })
 export class AppComponent {
 
-
-  storeList: Store[] = [];
-
-  getStores(): void {
-    this.storeList = this.storesService.getStores();
-  }
-
   title = 'Ada and Friends - Business Directory';
 
   constructor(private storesService: StoresService) { }
-
 
 }
 

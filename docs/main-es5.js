@@ -58,22 +58,17 @@
         function StoresService(http) {
           _classCallCheck(this, StoresService);
 
-          this.http = http;
-          this.storeList = [];
+          this.http = http; //private storesUrl = 'http://localhost:8000/stores/?format=json';
+          // private storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
+
           this.storesUrl = 'https://cardano-directory-back.herokuapp.com/stores/?format=json';
         }
 
         _createClass(StoresService, [{
           key: "getStores",
-          value: function getStores() {
-            var _this = this;
-
-            this.http.get(this.storesUrl).toPromise().then(function (data) {
-              for (var item in data) {
-                _this.storeList.push(data[item]);
-              }
-            });
-            return this.storeList;
+          value: function getStores(url) {
+            var currentUrl = url !== null && url !== void 0 ? url : this.storesUrl;
+            return this.http.get(currentUrl);
           }
         }]);
 
@@ -168,24 +163,12 @@
       /*! ./store-list/store-list.component */
       "smD0");
 
-      var AppComponent = /*#__PURE__*/function () {
-        function AppComponent(storesService) {
-          _classCallCheck(this, AppComponent);
+      var AppComponent = function AppComponent(storesService) {
+        _classCallCheck(this, AppComponent);
 
-          this.storesService = storesService;
-          this.storeList = [];
-          this.title = 'Ada and Friends - Business Directory';
-        }
-
-        _createClass(AppComponent, [{
-          key: "getStores",
-          value: function getStores() {
-            this.storeList = this.storesService.getStores();
-          }
-        }]);
-
-        return AppComponent;
-      }();
+        this.storesService = storesService;
+        this.title = 'Ada and Friends - Business Directory';
+      };
 
       AppComponent.ɵfac = function AppComponent_Factory(t) {
         return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_stores_service__WEBPACK_IMPORTED_MODULE_1__["StoresService"]));
@@ -367,17 +350,17 @@
         _createClass(HttpRequestInterceptor, [{
           key: "intercept",
           value: function intercept(request, next) {
-            var _this2 = this;
+            var _this = this;
 
             this._loading.setLoading(true, request.url);
 
             return next.handle(request).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["catchError"])(function (err) {
-              _this2._loading.setLoading(false, request.url);
+              _this._loading.setLoading(false, request.url);
 
               return err;
             })).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (evt) {
               if (evt instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpResponse"]) {
-                _this2._loading.setLoading(false, request.url);
+                _this._loading.setLoading(false, request.url);
               }
 
               return evt;
@@ -844,7 +827,7 @@
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "div", 8);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "div", 14);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](2, "div");
 
@@ -862,14 +845,54 @@
 
       function StoreListComponent_app_store_box_11_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "app-store-box", 9);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "app-store-box", 15);
         }
 
         if (rf & 2) {
-          var item_r2 = ctx.$implicit;
-          var indexOfStore_r3 = ctx.index;
+          var item_r3 = ctx.$implicit;
+          var indexOfStore_r4 = ctx.index;
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("store", item_r2)("index", indexOfStore_r3);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("store", item_r3)("index", indexOfStore_r4);
+        }
+      }
+
+      function StoreListComponent_li_18_Template(rf, ctx) {
+        if (rf & 1) {
+          var _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "li");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "button", 10);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function StoreListComponent_li_18_Template_button_click_1_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r7);
+
+            var page_r5 = ctx.$implicit;
+
+            var ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+
+            return ctx_r6.getStores(page_r5["address"]);
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          var page_r5 = ctx.$implicit;
+
+          var ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("disabled", ctx_r2.currentPage == page_r5["number"]);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](page_r5["number"]);
         }
       }
 
@@ -881,12 +904,85 @@
           this.storesService = storesService;
           this.loading = false;
           this.storeList = [];
+          this.paginationNext = '';
+          this.paginationPrevious = '';
+          this.pagesShown = [];
         }
 
         _createClass(StoreListComponent, [{
           key: "getStores",
-          value: function getStores() {
-            this.storeList = this.storesService.getStores();
+          value: function getStores(url) {
+            var _this2 = this;
+
+            this.storesService.getStores(url).subscribe(function (data) {
+              _this2.storeList = data['results'];
+              _this2.paginationNext = data['next'];
+              _this2.paginationPrevious = data['previous'];
+              _this2.numberOfPages = Math.ceil(data['count'] / 9);
+              console.log(_this2.paginationNext); // Extraction ofthe current page number from "next page" link
+
+              if (_this2.paginationNext !== null) {
+                _this2.currentPage = Number(_this2.paginationNext.split('page=')[1]) - 1;
+                _this2.paginationAddress = _this2.paginationNext.split('page=')[0];
+              } else {
+                _this2.currentPage = _this2.numberOfPages;
+              }
+
+              _this2.pagesShown = []; // We reset the list on every API call
+              // this.initializer = Math.max(1, this.currentPage - 2) <= 0 ? 1 :
+              //   this.currentPage - 2;
+              // this.endCondition = Math.min(this.currentPage + 2, this.numberOfPages)
+              // Selection of the page numbers to be displayed on the pagination nav
+
+              _this2.pagesShown = []; // We reset the list on every API call
+              // Set initializer and end condition for pages loop
+
+              if (_this2.numberOfPages <= 5 || [1, 2].includes(_this2.currentPage)) {
+                _this2.initializer = 1;
+                _this2.endCondition = Math.min(_this2.numberOfPages, 5);
+              } else if ([_this2.numberOfPages, _this2.numberOfPages - 1].includes(_this2.currentPage)) {
+                _this2.initializer = _this2.currentPage - 4;
+                _this2.endCondition = _this2.numberOfPages;
+              } else {
+                _this2.initializer = _this2.currentPage - 2;
+                _this2.endCondition = _this2.currentPage + 2;
+              } // Set pages to be shown with corresponding API address
+
+
+              for (var i = _this2.initializer; i <= _this2.endCondition; i++) {
+                _this2.pagesShown.push({
+                  "number": i,
+                  "address": "".concat(_this2.paginationAddress, "page=").concat(i)
+                });
+              } // if (this.numberOfPages <= 5 || [1, 2].includes(this.currentPage)) {
+              //   for (let i = 1; i < (this.numberOfPages + 1); i++) {
+              //     this.pagesShown.push({
+              //       "number": i,
+              //       "address": `http://localhost:8000/stores/?format=json&page=${i}`
+              //     })
+              //     if (this.pagesShown.length == 5) {
+              //       break
+              //     }
+              //   }
+              // } else if ([this.numberOfPages, this.numberOfPages - 1].includes(
+              //   this.currentPage)) {
+              //   for (let i = (this.currentPage - 4);
+              //     i < this.numberOfPages + 1; i++) {
+              //     this.pagesShown.push({
+              //       "number": i,
+              //       "address": `http://localhost:8000/stores/?format=json&page=${i}`
+              //     })
+              //   }
+              // } else {
+              //   for (let i = this.currentPage - 2; i < this.currentPage + 3; i++) {
+              //     this.pagesShown.push({
+              //       "number": i,
+              //       "address": `http://localhost:8000/stores/?format=json&page=${i}`
+              //     })
+              //   }
+              // }
+
+            });
           }
         }, {
           key: "ngOnInit",
@@ -916,9 +1012,9 @@
       StoreListComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
         type: StoreListComponent,
         selectors: [["app-store-list"]],
-        decls: 12,
-        vars: 2,
-        consts: [[2, "text-align", "left"], ["id", "explore", 1, "explore"], [1, "container"], [1, "section-header"], [4, "ngIf"], [1, "explore-content"], [1, "row"], [3, "store", "index", 4, "ngFor", "ngForOf"], [1, "lds-ring"], [3, "store", "index"]],
+        decls: 24,
+        vars: 5,
+        consts: [[2, "text-align", "left"], ["id", "explore", 1, "explore"], [1, "container"], [1, "section-header"], [4, "ngIf"], [1, "explore-content"], [1, "row"], [3, "store", "index", 4, "ngFor", "ngForOf"], ["aria-label", "pagination"], [1, "pagination"], [1, "pagination-btn", 3, "disabled", "click"], [4, "ngFor", "ngForOf"], [1, "visuallyhidden"], ["aria-hidden", "true"], [1, "lds-ring"], [3, "store", "index"]],
         template: function StoreListComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0);
@@ -953,6 +1049,54 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](12, "nav", 8);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](13, "ul", 9);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](14, "li");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](15, "button", 10);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function StoreListComponent_Template_button_click_15_listener() {
+              return ctx.getStores(ctx.paginationPrevious);
+            });
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](16, "span");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](17, "\xAB");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](18, StoreListComponent_li_18_Template, 3, 2, "li", 11);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](19, "li");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](20, "button", 10);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function StoreListComponent_Template_button_click_20_listener() {
+              return ctx.getStores(ctx.paginationNext);
+            });
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](21, "span", 12);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](22, "span", 13);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](23, "\xBB");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
@@ -970,6 +1114,18 @@
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", ctx.storeList);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](4);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("disabled", ctx.currentPage == 1);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", ctx.pagesShown);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("disabled", ctx.currentPage == ctx.numberOfPages);
           }
         },
         directives: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"], _store_box_store_box_component__WEBPACK_IMPORTED_MODULE_5__["StoreBoxComponent"]],

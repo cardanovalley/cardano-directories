@@ -7,3 +7,8 @@ export interface Store {
     picture: string,
     googlemaps_link: string,
 }
+
+export interface Pagination {
+    number: number,
+    address: string,
+}

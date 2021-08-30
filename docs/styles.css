@@ -188,4 +188,51 @@ nav.navbar.bootsnav .navbar-collapse.collapse.in {
     100% {
       transform: rotate(360deg);
     }
-  } 
+  }
+
+/* Pagination */
+
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.pagination li {
+    margin: 0 1px;
+}
+
+.pagination-btn {
+    display:  flex;
+    justify-content:  center;
+    align-items:  center;
+    font-size:  14px;
+    color:  purple;
+    min-width: 40px;
+    height:  40px;
+    background:  white;
+    border: 1px solid purple;
+    text-transform:  capitalize;
+    border-radius: 3px; 
+    transition: 0.3s linear;
+}
+
+.pagination-btn:hover{background: purple; color: white;}
+
+.pagination-btn svg {
+    width:  14px;
+    height:  auto;
+    margin-left:  12px;
+}
+
+.pagination-btn:disabled, .pagination-btn:disabled:hover {
+    color: gray;
+    border: 1px solid gray;
+    background-color: white;
+}

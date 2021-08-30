@@ -15,7 +15,17 @@
 						<app-store-box *ngFor="let item of storeList; let indexOfStore=index" [store]="item" 
 						[index]="indexOfStore"></app-store-box>	
 
+
 					</div>
+
+					<nav aria-label="pagination">
+						<ul class="pagination">
+							<li><button class="pagination-btn" [disabled]="currentPage == 1" (click)="getStores(paginationPrevious)"><span>«</span></button></li>
+							<li *ngFor="let page of pagesShown"><button class="pagination-btn" [disabled]="currentPage == page['number']" (click)="getStores(page['address'])">{{page['number']}}</button></li>
+							<li><button class="pagination-btn" [disabled]="currentPage == numberOfPages" (click)="getStores(paginationNext)"><span class="visuallyhidden"></span><span aria-hidden="true">»</span></button></li>
+						</ul>
+					</nav>
+
 				</div>
 			</div><!--/.container-->
 

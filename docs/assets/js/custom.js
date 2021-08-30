@@ -12,10 +12,7 @@ $(document).ready(function () {
 
 	/*=========== TABLE OF CONTENTS ===========
 	1. Scroll To Top 
-	2. slick carousel
 	3. welcome animation support
-	4. feather icon
-	5. counter
 	======================================*/
 
 	// 1. Scroll To Top 
@@ -45,16 +42,6 @@ $(document).ready(function () {
 		$(".welcome-hero-serch-box").addClass("animated fadeInDown").css({ 'opacity': '0' });
 	});
 
-	// 4. feather icon
 
-	feather.replace();
-
-	// 5. counter
-	$(window).on('load', function () {
-		$('.counter').counterUp({
-			delay: 10,
-			time: 3000
-		});
-	});
 
 });
