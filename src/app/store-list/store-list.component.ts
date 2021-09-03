@@ -41,15 +41,6 @@ export class StoreListComponent implements OnInit {
       } else {
         this.currentPage = this.numberOfPages;
       }
-
-
-
-      this.pagesShown = []; // We reset the list on every API call
-      // this.initializer = Math.max(1, this.currentPage - 2) <= 0 ? 1 :
-      //   this.currentPage - 2;
-      // this.endCondition = Math.min(this.currentPage + 2, this.numberOfPages)
-
-
       // Selection of the page numbers to be displayed on the pagination nav
 
       this.pagesShown = []; // We reset the list on every API call
@@ -76,38 +67,10 @@ export class StoreListComponent implements OnInit {
           "address": `${this.paginationAddress}page=${i}`
         })
       }
-
-
-
-      // if (this.numberOfPages <= 5 || [1, 2].includes(this.currentPage)) {
-      //   for (let i = 1; i < (this.numberOfPages + 1); i++) {
-      //     this.pagesShown.push({
-      //       "number": i,
-      //       "address": `http://localhost:8000/stores/?format=json&page=${i}`
-      //     })
-
-      //     if (this.pagesShown.length == 5) {
-      //       break
-      //     }
-      //   }
-      // } else if ([this.numberOfPages, this.numberOfPages - 1].includes(
-      //   this.currentPage)) {
-      //   for (let i = (this.currentPage - 4);
-      //     i < this.numberOfPages + 1; i++) {
-      //     this.pagesShown.push({
-      //       "number": i,
-      //       "address": `http://localhost:8000/stores/?format=json&page=${i}`
-      //     })
-      //   }
-      // } else {
-      //   for (let i = this.currentPage - 2; i < this.currentPage + 3; i++) {
-      //     this.pagesShown.push({
-      //       "number": i,
-      //       "address": `http://localhost:8000/stores/?format=json&page=${i}`
-      //     })
-      //   }
-      // }
-    });
+    }, err => {
+      console.log(err);
+    }
+    );
   }
 
 
