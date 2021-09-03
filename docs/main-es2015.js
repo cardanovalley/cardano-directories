@@ -35,9 +35,9 @@ class StoresService {
         this.http = http;
         this.attempts = 0;
         // private storesUrl = 'http://localhost:4200';
-        this.storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
+        // private storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
+        this.storesUrl = 'https://cardano-directory-back.herokuapp.com/stores/?format=json';
     }
-    // private storesUrl = 'https://cardano-directory-back.herokuapp.com/stores/?format=json';
     getStores(url) {
         const currentUrl = url !== null && url !== void 0 ? url : this.storesUrl;
         return this.http.get(currentUrl).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["tap"])(data => {
