@@ -44,13 +44,25 @@
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! rxjs */
+      "qCKp");
+      /* harmony import */
+
+
+      var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! rxjs/operators */
+      "kU1M");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
       /* harmony import */
 
 
-      var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! @angular/common/http */
       "tk/3");
 
@@ -58,17 +70,34 @@
         function StoresService(http) {
           _classCallCheck(this, StoresService);
 
-          this.http = http; //private storesUrl = 'http://localhost:8000/stores/?format=json';
-          // private storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
+          this.http = http;
+          this.attempts = 0; // private storesUrl = 'http://localhost:4200';
 
-          this.storesUrl = 'https://cardano-directory-back.herokuapp.com/stores/?format=json';
-        }
+          this.storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
+        } // private storesUrl = 'https://cardano-directory-back.herokuapp.com/stores/?format=json';
+
 
         _createClass(StoresService, [{
           key: "getStores",
           value: function getStores(url) {
+            var _this = this;
+
             var currentUrl = url !== null && url !== void 0 ? url : this.storesUrl;
-            return this.http.get(currentUrl);
+            return this.http.get(currentUrl).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["tap"])(function (data) {
+              _this.attempts = 0;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["catchError"])(function (err) {
+              debugger;
+
+              if (err.status === 0 && _this.attempts === 0) {
+                debugger;
+                _this.attempts += 1;
+                return _this.getStores(currentUrl);
+              } else {
+                console.log('error caught in service');
+                console.error(err);
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["throwError"])(err);
+              }
+            }));
           }
         }]);
 
@@ -76,10 +105,10 @@
       }();
 
       StoresService.ɵfac = function StoresService_Factory(t) {
-        return new (t || StoresService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]));
+        return new (t || StoresService)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]));
       };
 
-      StoresService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
+      StoresService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjectable"]({
         token: StoresService,
         factory: StoresService.ɵfac,
         providedIn: 'root'
@@ -317,19 +346,25 @@
       /* harmony import */
 
 
-      var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! rxjs */
+      "qCKp");
+      /* harmony import */
+
+
+      var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! rxjs/operators */
       "kU1M");
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
       /* harmony import */
 
 
-      var _loading_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _loading_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ./loading.service */
       "ixqX");
       /**
@@ -350,17 +385,17 @@
         _createClass(HttpRequestInterceptor, [{
           key: "intercept",
           value: function intercept(request, next) {
-            var _this = this;
+            var _this2 = this;
 
             this._loading.setLoading(true, request.url);
 
-            return next.handle(request).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["catchError"])(function (err) {
-              _this._loading.setLoading(false, request.url);
+            return next.handle(request).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (err) {
+              _this2._loading.setLoading(false, request.url);
 
-              return err;
-            })).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (evt) {
+              return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["throwError"])(err);
+            })).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (evt) {
               if (evt instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpResponse"]) {
-                _this._loading.setLoading(false, request.url);
+                _this2._loading.setLoading(false, request.url);
               }
 
               return evt;
@@ -372,10 +407,10 @@
       }();
 
       HttpRequestInterceptor.ɵfac = function HttpRequestInterceptor_Factory(t) {
-        return new (t || HttpRequestInterceptor)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_loading_service__WEBPACK_IMPORTED_MODULE_3__["LoadingService"]));
+        return new (t || HttpRequestInterceptor)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_loading_service__WEBPACK_IMPORTED_MODULE_4__["LoadingService"]));
       };
 
-      HttpRequestInterceptor.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjectable"]({
+      HttpRequestInterceptor.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineInjectable"]({
         token: HttpRequestInterceptor,
         factory: HttpRequestInterceptor.ɵfac
       });
@@ -912,76 +947,46 @@
         _createClass(StoreListComponent, [{
           key: "getStores",
           value: function getStores(url) {
-            var _this2 = this;
+            var _this3 = this;
 
             this.storesService.getStores(url).subscribe(function (data) {
-              _this2.storeList = data['results'];
-              _this2.paginationNext = data['next'];
-              _this2.paginationPrevious = data['previous'];
-              _this2.numberOfPages = Math.ceil(data['count'] / 9);
-              console.log(_this2.paginationNext); // Extraction ofthe current page number from "next page" link
+              _this3.storeList = data['results'];
+              _this3.paginationNext = data['next'];
+              _this3.paginationPrevious = data['previous'];
+              _this3.numberOfPages = Math.ceil(data['count'] / 9);
+              console.log(_this3.paginationNext); // Extraction ofthe current page number from "next page" link
 
-              if (_this2.paginationNext !== null) {
-                _this2.currentPage = Number(_this2.paginationNext.split('page=')[1]) - 1;
-                _this2.paginationAddress = _this2.paginationNext.split('page=')[0];
+              if (_this3.paginationNext !== null) {
+                _this3.currentPage = Number(_this3.paginationNext.split('page=')[1]) - 1;
+                _this3.paginationAddress = _this3.paginationNext.split('page=')[0];
               } else {
-                _this2.currentPage = _this2.numberOfPages;
-              }
+                _this3.currentPage = _this3.numberOfPages;
+              } // Selection of the page numbers to be displayed on the pagination nav
 
-              _this2.pagesShown = []; // We reset the list on every API call
-              // this.initializer = Math.max(1, this.currentPage - 2) <= 0 ? 1 :
-              //   this.currentPage - 2;
-              // this.endCondition = Math.min(this.currentPage + 2, this.numberOfPages)
-              // Selection of the page numbers to be displayed on the pagination nav
 
-              _this2.pagesShown = []; // We reset the list on every API call
+              _this3.pagesShown = []; // We reset the list on every API call
               // Set initializer and end condition for pages loop
 
-              if (_this2.numberOfPages <= 5 || [1, 2].includes(_this2.currentPage)) {
-                _this2.initializer = 1;
-                _this2.endCondition = Math.min(_this2.numberOfPages, 5);
-              } else if ([_this2.numberOfPages, _this2.numberOfPages - 1].includes(_this2.currentPage)) {
-                _this2.initializer = _this2.currentPage - 4;
-                _this2.endCondition = _this2.numberOfPages;
+              if (_this3.numberOfPages <= 5 || [1, 2].includes(_this3.currentPage)) {
+                _this3.initializer = 1;
+                _this3.endCondition = Math.min(_this3.numberOfPages, 5);
+              } else if ([_this3.numberOfPages, _this3.numberOfPages - 1].includes(_this3.currentPage)) {
+                _this3.initializer = _this3.currentPage - 4;
+                _this3.endCondition = _this3.numberOfPages;
               } else {
-                _this2.initializer = _this2.currentPage - 2;
-                _this2.endCondition = _this2.currentPage + 2;
+                _this3.initializer = _this3.currentPage - 2;
+                _this3.endCondition = _this3.currentPage + 2;
               } // Set pages to be shown with corresponding API address
 
 
-              for (var i = _this2.initializer; i <= _this2.endCondition; i++) {
-                _this2.pagesShown.push({
+              for (var i = _this3.initializer; i <= _this3.endCondition; i++) {
+                _this3.pagesShown.push({
                   "number": i,
-                  "address": "".concat(_this2.paginationAddress, "page=").concat(i)
+                  "address": "".concat(_this3.paginationAddress, "page=").concat(i)
                 });
-              } // if (this.numberOfPages <= 5 || [1, 2].includes(this.currentPage)) {
-              //   for (let i = 1; i < (this.numberOfPages + 1); i++) {
-              //     this.pagesShown.push({
-              //       "number": i,
-              //       "address": `http://localhost:8000/stores/?format=json&page=${i}`
-              //     })
-              //     if (this.pagesShown.length == 5) {
-              //       break
-              //     }
-              //   }
-              // } else if ([this.numberOfPages, this.numberOfPages - 1].includes(
-              //   this.currentPage)) {
-              //   for (let i = (this.currentPage - 4);
-              //     i < this.numberOfPages + 1; i++) {
-              //     this.pagesShown.push({
-              //       "number": i,
-              //       "address": `http://localhost:8000/stores/?format=json&page=${i}`
-              //     })
-              //   }
-              // } else {
-              //   for (let i = this.currentPage - 2; i < this.currentPage + 3; i++) {
-              //     this.pagesShown.push({
-              //       "number": i,
-              //       "address": `http://localhost:8000/stores/?format=json&page=${i}`
-              //     })
-              //   }
-              // }
-
+              }
+            }, function (err) {
+              console.log(err);
             });
           }
         }, {
@@ -993,11 +998,11 @@
         }, {
           key: "listenToLoading",
           value: function listenToLoading() {
-            var _this3 = this;
+            var _this4 = this;
 
             this._loading.loadingSub.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["delay"])(0)) // This prevents a ExpressionChangedAfterItHasBeenCheckedError for subsequent requests
             .subscribe(function (loading) {
-              _this3.loading = loading;
+              _this4.loading = loading;
             });
           }
         }]);
@@ -1033,7 +1038,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](6, "p");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](7, "Find stores and businesses that accept ADA coin, the Cardano Blockchain coin");
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](7, "Find stores and businesses that accept Ada, the Cardano Native Token");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 

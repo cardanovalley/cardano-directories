@@ -22,24 +22,43 @@ module.exports = __webpack_require__(/*! /home/nicky/git/ada_stores/frontend/src
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StoresService", function() { return StoresService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ "qCKp");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+
+
 
 
 class StoresService {
     constructor(http) {
         this.http = http;
-        //private storesUrl = 'http://localhost:8000/stores/?format=json';
-        // private storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
-        this.storesUrl = 'https://cardano-directory-back.herokuapp.com/stores/?format=json';
+        this.attempts = 0;
+        // private storesUrl = 'http://localhost:4200';
+        this.storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
     }
+    // private storesUrl = 'https://cardano-directory-back.herokuapp.com/stores/?format=json';
     getStores(url) {
         const currentUrl = url !== null && url !== void 0 ? url : this.storesUrl;
-        return this.http.get(currentUrl);
+        return this.http.get(currentUrl).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["tap"])(data => {
+            this.attempts = 0;
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["catchError"])((err) => {
+            debugger;
+            if (err.status === 0 && this.attempts === 0) {
+                debugger;
+                this.attempts += 1;
+                return this.getStores(currentUrl);
+            }
+            else {
+                console.log('error caught in service');
+                console.error(err);
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["throwError"])(err);
+            }
+        }));
     }
 }
-StoresService.ɵfac = function StoresService_Factory(t) { return new (t || StoresService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };
-StoresService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: StoresService, factory: StoresService.ɵfac, providedIn: 'root' });
+StoresService.ɵfac = function StoresService_Factory(t) { return new (t || StoresService)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"])); };
+StoresService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjectable"]({ token: StoresService, factory: StoresService.ɵfac, providedIn: 'root' });
 
 
 /***/ }),
@@ -157,9 +176,11 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdefineInjector
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpRequestInterceptor", function() { return HttpRequestInterceptor; });
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _loading_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./loading.service */ "ixqX");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "qCKp");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _loading_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./loading.service */ "ixqX");
+
 
 
 
@@ -177,11 +198,11 @@ class HttpRequestInterceptor {
     intercept(request, next) {
         this._loading.setLoading(true, request.url);
         return next.handle(request)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["catchError"])((err) => {
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])((err) => {
             this._loading.setLoading(false, request.url);
-            return err;
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["throwError"])(err);
         }))
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((evt) => {
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((evt) => {
             if (evt instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpResponse"]) {
                 this._loading.setLoading(false, request.url);
             }
@@ -189,8 +210,8 @@ class HttpRequestInterceptor {
         }));
     }
 }
-HttpRequestInterceptor.ɵfac = function HttpRequestInterceptor_Factory(t) { return new (t || HttpRequestInterceptor)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_loading_service__WEBPACK_IMPORTED_MODULE_3__["LoadingService"])); };
-HttpRequestInterceptor.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjectable"]({ token: HttpRequestInterceptor, factory: HttpRequestInterceptor.ɵfac });
+HttpRequestInterceptor.ɵfac = function HttpRequestInterceptor_Factory(t) { return new (t || HttpRequestInterceptor)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_loading_service__WEBPACK_IMPORTED_MODULE_4__["LoadingService"])); };
+HttpRequestInterceptor.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineInjectable"]({ token: HttpRequestInterceptor, factory: HttpRequestInterceptor.ɵfac });
 
 
 /***/ }),
@@ -466,10 +487,6 @@ class StoreListComponent {
             else {
                 this.currentPage = this.numberOfPages;
             }
-            this.pagesShown = []; // We reset the list on every API call
-            // this.initializer = Math.max(1, this.currentPage - 2) <= 0 ? 1 :
-            //   this.currentPage - 2;
-            // this.endCondition = Math.min(this.currentPage + 2, this.numberOfPages)
             // Selection of the page numbers to be displayed on the pagination nav
             this.pagesShown = []; // We reset the list on every API call
             // Set initializer and end condition for pages loop
@@ -492,33 +509,8 @@ class StoreListComponent {
                     "address": `${this.paginationAddress}page=${i}`
                 });
             }
-            // if (this.numberOfPages <= 5 || [1, 2].includes(this.currentPage)) {
-            //   for (let i = 1; i < (this.numberOfPages + 1); i++) {
-            //     this.pagesShown.push({
-            //       "number": i,
-            //       "address": `http://localhost:8000/stores/?format=json&page=${i}`
-            //     })
-            //     if (this.pagesShown.length == 5) {
-            //       break
-            //     }
-            //   }
-            // } else if ([this.numberOfPages, this.numberOfPages - 1].includes(
-            //   this.currentPage)) {
-            //   for (let i = (this.currentPage - 4);
-            //     i < this.numberOfPages + 1; i++) {
-            //     this.pagesShown.push({
-            //       "number": i,
-            //       "address": `http://localhost:8000/stores/?format=json&page=${i}`
-            //     })
-            //   }
-            // } else {
-            //   for (let i = this.currentPage - 2; i < this.currentPage + 3; i++) {
-            //     this.pagesShown.push({
-            //       "number": i,
-            //       "address": `http://localhost:8000/stores/?format=json&page=${i}`
-            //     })
-            //   }
-            // }
+        }, err => {
+            console.log(err);
         });
     }
     ngOnInit() {
@@ -543,7 +535,7 @@ StoreListComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefin
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](5, "find your store");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](6, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](7, "Find stores and businesses that accept ADA coin, the Cardano Blockchain coin");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](7, "Find stores and businesses that accept Ada, the Cardano Native Token");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](8, StoreListComponent_div_8_Template, 6, 0, "div", 4);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
