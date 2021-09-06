@@ -34,7 +34,7 @@ class StoresService {
     constructor(http) {
         this.http = http;
         this.attempts = 0;
-        // private storesUrl = 'http://localhost:4200';
+        // private storesUrl = 'http://localhost:8000/stores/?format=json';
         // private storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
         this.storesUrl = 'https://cardano-directory-back.herokuapp.com/stores/?format=json';
     }
