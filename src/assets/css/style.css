@@ -290,7 +290,6 @@ nav.navbar.bootsnav .navbar-toggle i{color: white;}
 .welcome-hero-serch-box{margin-top: 78px;display: flex;}
 .welcome-hero-form {
     display: flex;
-    flex: column;
     background: #fff;
     height: 70px;
     border-radius: 3px;

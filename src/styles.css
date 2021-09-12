@@ -1,3 +1,21 @@
+/*==================================
+* Author        : "Nicolas A. Oyarzabal"
+* GitHub        : nicky-eng
+* Version       : 1.0
+==================================== */
+
+/*=========== TABLE OF CONTENTS ===========
+1234.  To be classified
+5.  Spinner
+6.  Pagination
+7.  Add-your-store
+==========================================*/
+
+
+/*-------------------------------------
+        1234.  To be clasiffied
+--------------------------------------*/
+
 .close-btn.open-btn {
     font-family:  sans-serif;
 }
@@ -136,6 +154,9 @@ nav.navbar.bootsnav .navbar-collapse.collapse.in {
     padding-bottom: 0px;
 }
 
+/*-------------------------------------
+        5.  Spinner
+--------------------------------------*/
 /* Spinner */
 .lds-ring {
     display: inline-block;
@@ -173,7 +194,9 @@ nav.navbar.bootsnav .navbar-collapse.collapse.in {
     }
   } 
 
-/* Pagination */  
+/*-------------------------------------
+        6.  Pagination
+--------------------------------------*/
 nav {
     display: flex;
     justify-content: center;
@@ -222,21 +245,109 @@ nav {
     background-color: white;
 }
 
-.welcome-hero-btn { 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
+/*-------------------------------------
+        7.  Add-your-store
+--------------------------------------*/
+.add-your-store {
+    position: relative;
+    background-position:center;
+    background-size:cover;
+    padding-bottom: 70px;
+    text-align: center;
+    min-height:800px;
+    z-index: 1;
+}
+.add-your-store:before{
+    position: absolute;
+    content: " ";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:rgba(65,73,89,.65);
+    z-index: -1;
+}
+.add-your-store-txt {padding-top: 155px;
+    padding-bottom: 30px;}
+
+.add-your-store-txt h2 {
+    font-size: 48px;
     color: #fff;
-    width: 170px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.4px;
+    line-height: 1.4;
+}
+.add-your-store-txt p {
+    font-size: 18px;
+    color: #fcfcfc;
+    margin-top: 25px;
+    margin-bottom: 35px;
+}
+
+.add-your-store-box{
+    margin-top: 15px;
+    margin-bottom: 2px;
+    display: flex;
+
+}
+.add-your-store-form {
+    display: flex;
+    background: #fff;
     height: 70px;
-    background: #5b11d1;
+    border-radius: 5px;
+    width: 60%;
+    padding: 10px;
+    margin: auto;
+}
+
+.single-add-your-store-form {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 70%;
+    padding: 0px 20px;
+}
+
+.single-add-your-store-form input {
+    margin-left: 10px;
+    height: 70px;
+    width: 800px;
+    border: 0;
+    background: transparent;
+}
+.single-add-your-store-form input[type="text"]{
+    font-size: 14px;
+    color: #859098;
     text-transform: capitalize;
-    margin-left: 30px;
+    font-weight: 500;
+}
+
+.add-your-store-btn {
+    display:  flex;
+    justify-content:  center;
+    align-items:  center;
+    font-size:  14px;
+    color:  #fff;
+    width:  240px;
+    height:  70px;
+    background:  #5b11d1;
+    text-transform:  capitalize;
+    margin: auto;
     border-radius: 20px;
+    -webkit-transition: 0.3s linear; 
+    -moz-transition: 0.3s linear; 
+    -ms-transition: 0.3s linear; 
+    -o-transition: 0.3s linear; 
     transition: 0.3s linear;
 }
 
-.welcome-hero-btn:hover { 
-    background: #5b11d1;
+.add-your-store-btn:hover{
+    background: white;
+    color: #5b11d1;
+}
+
+.temporary-form {
+    color: black;
 }

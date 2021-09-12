@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { Store } from './store';
 
 
 @Injectable({
@@ -10,18 +11,18 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class StoresService {
 
-  constructor(private http: HttpClient) { }
-
+  constructor(private http: HttpClient) { };
 
   private attempts = 0;
 
   private storesUrl = 'http://localhost:8000/stores/?format=json';
+
   // private storesUrl = 'https://testing-cardano-back.herokuapp.com/stores/?format=json';
 
   // private storesUrl = 'https://cardano-directory-back.herokuapp.com/stores/?format=json';
 
   getStores(url: string): Observable<any> {
-    const currentUrl = url ?? this.storesUrl
+    const currentUrl = url ?? this.storesUrl;
 
     return this.http.get(currentUrl).pipe(
       tap(data => {
@@ -43,4 +44,16 @@ export class StoresService {
   }
 
 
+  requestHeaders = {
+    headers: new HttpHeaders({
+      'Content-Type': 'multipart/form-data; boundary=<calculated when request is sent>',
+    })
+  };
+
+  private postUrl = 'http://localhost:8000/stores/';
+
+  postStore(store: Store): Observable<any> {
+
+    return this.http.post<Store>(this.postUrl, store)
+  }
 }
