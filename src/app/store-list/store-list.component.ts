@@ -32,8 +32,6 @@ export class StoreListComponent implements OnInit {
       this.paginationPrevious = data['previous'];
       this.numberOfPages = Math.ceil(data['count'] / 9);
 
-      console.log(this.paginationNext)
-
       // Extraction ofthe current page number from "next page" link
       if (this.paginationNext !== null) {
         this.currentPage = Number(this.paginationNext.split('page=')[1]) - 1;

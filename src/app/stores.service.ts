@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
@@ -42,13 +42,6 @@ export class StoresService {
       })
     )
   }
-
-
-  requestHeaders = {
-    headers: new HttpHeaders({
-      'Content-Type': 'multipart/form-data; boundary=<calculated when request is sent>',
-    })
-  };
 
   private postUrl = 'http://localhost:8000/stores/';
 

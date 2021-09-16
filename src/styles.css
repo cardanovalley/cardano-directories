@@ -350,4 +350,17 @@ nav {
 
 .temporary-form {
     color: black;
+    padding: 30px;
+    border: dashed blue 3px;
+}
+
+.temporary-form button {
+    padding: 12px;
+    border-radius: 12px;
+    color: white;
+    background-color: #5b11d1;
+}
+
+.temporary-form button:disabled {
+    color: red;
 }

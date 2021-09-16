@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, Validators, FormControl, FormGroup }
+  from '@angular/forms';
 import { LoadingService } from '../loading.service';
 
 import { StoresService } from '../stores.service';
@@ -14,20 +15,31 @@ import { Store } from '../store';
 export class AddYourStoreComponent {
 
   addStoreForm = this.formBuilder.group({
-    name: '',
-    address: '',
-    website: '',
-  })
+    name: ['', Validators.required],
+    address: ['', Validators.required],
+    website: ['', Validators.required],
+    googlemaps_link: [""],
+    picture: null,
+    country: null,
+    state: null,
+
+  });
 
   newStore: Store = {
-    "name": "Nicky detached37",
-    "website": "nick-detached.com7",
-    "address": "Detached St. 3337",
-    "googlemaps_link": "",
-    "picture": null,
-    "country": null,
-    "state": null,
+    name: this.addStoreForm.value.storeName,
+    website: this.addStoreForm.value.address,
+    address: this.addStoreForm.value.website,
+    googlemaps_link: "",
+    picture: null,
+    country: null,
+    state: null,
   };
+
+  // addStoreForm = new FormGroup({
+  //   storeName: new FormControl(''),
+  //   address: new FormControl(''),
+  //   website: new FormControl(''),
+  // });
 
   constructor(
     private _loading: LoadingService,
@@ -36,15 +48,16 @@ export class AddYourStoreComponent {
 
   ) { }
 
-  postStore(myStore) {
+  postStore(myStore: Store) {
     this.storesService
       .postStore(myStore)
       .subscribe();
   }
 
   onSubmit(): void {
-    this.postStore(this.newStore);
-    this.addStoreForm.reset();
+    this.postStore(this.addStoreForm.value);
+
+    console.log(this.addStoreForm.value);
   }
 
 }
