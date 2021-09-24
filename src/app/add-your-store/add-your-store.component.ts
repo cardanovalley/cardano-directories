@@ -4,6 +4,7 @@ import { FormBuilder, Validators, FormControl, FormGroup }
 import { LoadingService } from '../loading.service';
 
 import { StoresService } from '../stores.service';
+import { CountriesService } from '../countries.service';
 
 
 
@@ -15,6 +16,7 @@ import { StoresService } from '../stores.service';
 export class AddYourStoreComponent {
 
   picture: File
+  countries: string[] = [];
 
   addStoreForm = this.formBuilder.group({
     name: ['', Validators.required],
@@ -31,6 +33,7 @@ export class AddYourStoreComponent {
     private _loading: LoadingService,
     private formBuilder: FormBuilder,
     private storesService: StoresService,
+    private countriesService: CountriesService,
 
   ) { }
 
@@ -45,6 +48,24 @@ export class AddYourStoreComponent {
     this.storesService
       .postStore(myStore)
       .subscribe();
+  }
+
+  getCountries() {
+    this.countriesService.getCountries().subscribe((data: JSON) => {
+      let names = data
+      for (let i = 0; i < Object.keys(data).length; i++) {
+
+        this.countries.push(data[i]);
+      }
+      console.log('Countries');
+      console.log(this.countries);
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  ngOnInit() {
+    this.getCountries();
   }
 
   onSubmit(): void {
@@ -64,5 +85,4 @@ export class AddYourStoreComponent {
 
     console.log(myFormData);
   }
-
 }

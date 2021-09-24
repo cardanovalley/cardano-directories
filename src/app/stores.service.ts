@@ -29,13 +29,12 @@ export class StoresService {
         this.attempts = 0;
       }),
       catchError((err) => {
-        debugger;
         if (err.status === 0 && this.attempts === 0) {
           debugger;
           this.attempts += 1;
           return this.getStores(currentUrl)
         } else {
-          console.log('error caught in service')
+          console.log('error caught in service');
           console.error(err);
           return throwError(err);
         }
