@@ -45,7 +45,7 @@ export class StoresService {
 
   private postUrl = 'http://localhost:8000/stores/';
 
-  postStore(store: Store): Observable<any> {
+  postStore(store: FormData): Observable<any> {
 
     return this.http.post<Store>(this.postUrl, store)
   }

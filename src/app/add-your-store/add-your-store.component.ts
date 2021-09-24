@@ -4,7 +4,7 @@ import { FormBuilder, Validators, FormControl, FormGroup }
 import { LoadingService } from '../loading.service';
 
 import { StoresService } from '../stores.service';
-import { Store } from '../store';
+
 
 
 @Component({
@@ -13,6 +13,8 @@ import { Store } from '../store';
   styleUrls: ['./add-your-store.component.css']
 })
 export class AddYourStoreComponent {
+
+  picture: File
 
   addStoreForm = this.formBuilder.group({
     name: ['', Validators.required],
@@ -25,22 +27,6 @@ export class AddYourStoreComponent {
 
   });
 
-  newStore: Store = {
-    name: this.addStoreForm.value.storeName,
-    website: this.addStoreForm.value.address,
-    address: this.addStoreForm.value.website,
-    googlemaps_link: "",
-    picture: null,
-    country: null,
-    state: null,
-  };
-
-  // addStoreForm = new FormGroup({
-  //   storeName: new FormControl(''),
-  //   address: new FormControl(''),
-  //   website: new FormControl(''),
-  // });
-
   constructor(
     private _loading: LoadingService,
     private formBuilder: FormBuilder,
@@ -48,16 +34,35 @@ export class AddYourStoreComponent {
 
   ) { }
 
-  postStore(myStore: Store) {
+  public onFileChanged(event: any) {
+    if (event.target.files && event.target.files.length) {
+      const file = event.target.files[0];
+      this.picture = file;
+    }
+  }
+
+  postStore(myStore: FormData) {
     this.storesService
       .postStore(myStore)
       .subscribe();
   }
 
   onSubmit(): void {
-    this.postStore(this.addStoreForm.value);
+    const myFormValue = this.addStoreForm.value
 
-    console.log(this.addStoreForm.value);
+    const myFormData = new FormData();
+
+    for (const [key, value] of Object.entries(myFormValue)) {
+      if (key === 'picture') {
+        myFormData.append(key, this.picture);
+      } else {
+        myFormData.append(key, myFormValue[key]);
+      }
+    }
+
+    this.postStore(myFormData);
+
+    console.log(myFormData);
   }
 
 }

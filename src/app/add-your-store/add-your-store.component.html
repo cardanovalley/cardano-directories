@@ -40,7 +40,7 @@
 					<label for="image">
 						Image
 					</label>
-					<input id="image" type="file" formControlName="picture">
+					<input id="image" type="file" (change)="onFileChanged($event)" formControlName="picture">
 				</div>
 				<p>Complete the required fields to add your store</p>
 
@@ -48,85 +48,11 @@
 
 			</form>
 		</div>
+	</div>
 		
 
 
-		<div class="add-your-store-box">
-			<div class="add-your-store-form">
-				<div class="single-add-your-store-form">
-					<h3>Name</h3>
-					<form action="index.html">
-						<input type="text"
-							placeholder="Ex: Cardano Software Factory">
-					</form>
-				</div>				
-			</div>
-		</div>
-		<div class="add-your-store-box">
-			<div class="add-your-store-form">
-				<div class="single-add-your-store-form">
-					<h3>Picture</h3>
-					<form action="index.html">
-						<input type="file"
-							id="picture"
-							name="picture"
-							accept="image/png, image/jpeg"
-							placeholder="Ex: Our Logo Image">
-					</form>
-				</div>				
-			</div>
-		</div>
-		<div class="add-your-store-box">
-			<div class="add-your-store-form">
-				<div class="single-add-your-store-form">
-					<h3>Address</h3>
-					<form action="index.html">
-						<input type="text"
-							placeholder="Ex: 706 Rosewood Dr, Palo Alto, CA">
-					</form>
-				</div>				
-			</div>
-		</div>
-		<div class="add-your-store-box">
-			<div class="add-your-store-form">
-				<div class="single-add-your-store-form">
-					<h3>Googlemaps</h3>
-					<form action="index.html">
-						<input type="text"
-							placeholder="Ex: https://goo.gl/maps/HDDgTHh14mS74adg9">
-					</form>
-				</div>				
-			</div>
-		</div>
-		<div class="add-your-store-box">
-			<div class="add-your-store-form">						
-				<div class="single-add-your-store-form">
-					<h3>Website</h3>
-					<form action="index.html">
-						<input type="text" 
-							placeholder="Ex: https://cardansoftware.com">
-					</form>
-				</div>
-			</div>
-		</div>
-		<div class="add-your-store-box">
-			<div class="add-your-store-form">
-				<div class="single-add-your-store-form">
-					<h3>Country</h3>
-					<form action="index.html">
-						<input type="text"
-							placeholder="Ex: United States of America">
-					</form>
-				</div>				
-			</div>
-		</div>
-		<div class="add-your-store-box">
-			<button class="add-your-store-btn"
-					onclick="window.location.href='#'">
-					Add Store
-			</button>
-		</div>
-	</div>
+		
 
 </section><!--/.add-your-store-->
 <!--add-your-store end -->
