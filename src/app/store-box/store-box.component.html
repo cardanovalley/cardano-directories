@@ -15,8 +15,8 @@
                                 <p *ngIf="store.state; else elseBlock">{{ store.address }}, {{ store.state}}</p>
                                 <ng-template #elseBlock>{{ store.address }}</ng-template></a>
                             <br>
-                            <div *ngIf="store.country">
-                                <a href="{{ store.googlemaps_link }}" target="_blank" rel="noopener noreferrer">{{ store.country['name'] }}</a>
+                            <div *ngIf="store.country_name">
+                                <a href="{{ store.googlemaps_link }}" target="_blank" rel="noopener noreferrer">{{ store.country_name }}</a>
                             </div>
                         </div>
                     </div>

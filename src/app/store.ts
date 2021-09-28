@@ -1,6 +1,7 @@
 export interface Store {
     name: string,
     country: string,
+    country_name: string;
     state: string,
     address: string,
     website: string,

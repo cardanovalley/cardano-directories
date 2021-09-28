@@ -34,7 +34,11 @@
 					<label for="country">
 						Country
 					</label>
-					<input id="country" type="text" formControlName="country">
+					<select id="country" formControlName="country">
+						<option *ngFor="let country of countries" [ngValue]="country.url">
+							{{ country.name }}
+						</option>
+					</select>
 				</div>
 				<div>
 					<label for="image">

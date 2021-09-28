@@ -16,7 +16,7 @@ import { CountriesService } from '../countries.service';
 export class AddYourStoreComponent {
 
   picture: File
-  countries: string[] = [];
+  countries: Object = {};
 
   addStoreForm = this.formBuilder.group({
     name: ['', Validators.required],
@@ -52,11 +52,8 @@ export class AddYourStoreComponent {
 
   getCountries() {
     this.countriesService.getCountries().subscribe((data: JSON) => {
-      let names = data
-      for (let i = 0; i < Object.keys(data).length; i++) {
+      this.countries = data
 
-        this.countries.push(data[i]);
-      }
       console.log('Countries');
       console.log(this.countries);
     }, err => {
