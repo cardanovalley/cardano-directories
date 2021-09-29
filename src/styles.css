@@ -361,5 +361,6 @@ nav {
 }
 
 .temporary-form button:disabled {
-    color: red;
+    color: white;
+    background-color: gray;
 }

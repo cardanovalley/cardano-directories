@@ -23,9 +23,9 @@ export class AddYourStoreComponent {
     name: ['', Validators.required],
     address: ['', Validators.required],
     website: ['', Validators.required],
-    googlemaps_link: [""],
-    picture: null,
-    country: null,
+    googlemaps_link: [null],
+    picture: [null],
+    country: [null],
     state: null,
 
   });
@@ -54,9 +54,6 @@ export class AddYourStoreComponent {
   getCountries() {
     this.countriesService.getCountries().subscribe((data: JSON) => {
       this.countries = data
-
-      console.log('Countries');
-      console.log(this.countries);
     }, err => {
       console.log(err);
     });
@@ -72,9 +69,9 @@ export class AddYourStoreComponent {
     this.addStoreForm.reset();
 
     for (const [key, value] of Object.entries(myFormValue)) {
-      if (key === 'picture') {
+      if (key === 'picture' && myFormValue[key] != undefined) {
         myFormData.append(key, this.picture);
-      } else {
+      } else if (value != null && key !== 'picture') {
         myFormData.append(key, myFormValue[key]);
       }
     }

@@ -55,11 +55,78 @@
 				</div>
 				<p>Complete the required fields to add your store</p>
 
-				<button class="button" type="sumbit">Add Store</button>
+				<button class="button" type="sumbit" [disabled]="!addStoreForm.valid">Add Store</button>
 
 			</form>
 		</div>
 	</div>
+	<form [formGroup]="addStoreForm" (ngSubmit)="onSubmit()">
+		<div class="add-your-store-box">
+			
+			<div class="add-your-store-form">
+				<div class="single-add-your-store-form">
+					<h3>Name*</h3>
+					<input id="store-name" placeholder="Ex: Cardano Software Factory" type="text" formControlName="name">
+				</div>				
+			</div>
+		</div>
+		<div class="add-your-store-box">
+			<div class="add-your-store-form">						
+				<div class="single-add-your-store-form">
+					<h3>Website*</h3>
+					<input id="website" placeholder="Ex: https://cardansoftware.com" type="text" formControlName="website">
+				</div>
+			</div>
+		</div>
+
+		<div class="add-your-store-box">
+			<div class="add-your-store-form">
+				<div class="single-add-your-store-form">
+					<h3>Address*</h3>
+					<input id="address" placeholder="Ex: 706 Rosewood Dr, Palo Alto, CA" type="text" formControlName="address">
+				</div>				
+			</div>
+		</div>
+
+
+		<div class="add-your-store-box">
+			<div class="add-your-store-form">
+				<div class="single-add-your-store-form">
+					<h3>Googlemaps Link</h3>
+					<input id="googlemaps" placeholder="Ex: https://goo.gl/maps/HDDgTHh14mS74adg9" type="text" formControlName="googlemaps_link">
+				</div>				
+			</div>
+		</div>
+		<div class="add-your-store-box">
+			<div class="add-your-store-form">
+				<div class="single-add-your-store-form">
+					<h3>Country</h3>
+					<select id="country" formControlName="country">
+						<option *ngFor="let country of countries" [ngValue]="country.url">
+							{{ country.name }}
+						</option>
+					</select>
+				</div>				
+			</div>
+		</div>
+		<div class="add-your-store-box">
+			<div class="add-your-store-form">
+				<div class="single-add-your-store-form">
+					<h3>Image</h3>
+					<input id="image" type="file" (change)="onFileChanged($event)" formControlName="picture">
+				</div>				
+			</div>
+		</div>
+		<p>Complete the required fields to add your store</p>
+		<div class="add-your-store-box">
+			<button class="add-your-store-btn" type="sumbit"
+				 [disabled]="!addStoreForm.valid">Add Store</button>
+		</div>
+
+
+	</form>
+	
+
 		
 
 
