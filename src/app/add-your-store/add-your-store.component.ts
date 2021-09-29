@@ -16,7 +16,8 @@ import { CountriesService } from '../countries.service';
 export class AddYourStoreComponent {
 
   picture: File
-  countries: Object = {};
+  countries: Object = {}; // This is a key:value list with country 'name' and
+  // url values because the API is a hyperlinked serializer
 
   addStoreForm = this.formBuilder.group({
     name: ['', Validators.required],
@@ -66,9 +67,9 @@ export class AddYourStoreComponent {
   }
 
   onSubmit(): void {
-    const myFormValue = this.addStoreForm.value
-
+    const myFormValue = this.addStoreForm.value;
     const myFormData = new FormData();
+    this.addStoreForm.reset();
 
     for (const [key, value] of Object.entries(myFormValue)) {
       if (key === 'picture') {

@@ -4,7 +4,7 @@
 		<div class="add-your-store-txt">
 			<h2>add your store</h2>
 			<p>
-				Add your store or bussiness to PayAda Directories
+				Add your store, business or art gallery to PayAda Directories
 				and be found all over the world 
 			</p>
 		</div>
@@ -14,21 +14,28 @@
 			<form [formGroup]="addStoreForm" (ngSubmit)="onSubmit()">
 				<div>
 					<label for="store-name">
-						Store Name
+						Store Name*
 					</label>
 					<input id="store-name" type="text" formControlName="name">
 				</div>
 				<div>
+					<label for="website">
+						Website*
+					</label>
+					<input id="website" type="text" formControlName="website">
+				</div>
+				<div>
 					<label for="address">
-						Address
+						Address*
 					</label>
 					<input id="address" type="text" formControlName="address">
 				</div>
+
 				<div>
-					<label for="website">
-						Website
+					<label for="googlemaps">
+						Google Maps Link
 					</label>
-					<input id="website" type="text" formControlName="website">
+					<input id="googlemaps" type="text" formControlName="googlemaps_link">
 				</div>
 				<div>
 					<label for="country">
