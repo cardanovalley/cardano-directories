@@ -15,15 +15,16 @@ import { CountriesService } from '../countries.service';
 })
 export class AddYourStoreComponent {
 
-  picture: File
+  picture: File;
   countries: Object = {}; // This is a key:value list with country 'name' and
   // url values because the API is a hyperlinked serializer
+  fileName: string = '';
 
   addStoreForm = this.formBuilder.group({
     name: ['', Validators.required],
     address: ['', Validators.required],
     website: ['', Validators.required],
-    googlemaps_link: [null],
+    googlemaps_link: [null], // Name convention according to backend
     picture: [null],
     country: [null],
     state: null,
@@ -42,6 +43,7 @@ export class AddYourStoreComponent {
     if (event.target.files && event.target.files.length) {
       const file = event.target.files[0];
       this.picture = file;
+      this.fileName = file.name;
     }
   }
 
@@ -67,11 +69,12 @@ export class AddYourStoreComponent {
     const myFormValue = this.addStoreForm.value;
     const myFormData = new FormData();
     this.addStoreForm.reset();
+    this.fileName = '';
 
     for (const [key, value] of Object.entries(myFormValue)) {
       if (key === 'picture' && myFormValue[key] != undefined) {
         myFormData.append(key, this.picture);
-      } else if (value != null && key !== 'picture') {
+      } else if (value != null && value != undefined) {
         myFormData.append(key, myFormValue[key]);
       }
     }
