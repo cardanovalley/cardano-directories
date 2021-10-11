@@ -1,4 +1,46 @@
 <!--/.add-your-store-->
+
+<section class='form'>
+	<div class="form-add-store">
+		<label>Name:</label>
+		<input id="store-name" placeholder="Ex: Cardano Software Factory" type="text" formControlName="name">
+	</div>
+
+	<div class="form-add-store">
+		<label>Website:</label>
+		<input id="website" placeholder="Ex: https://cardansoftware.com" type="text" formControlName="website">
+	</div>
+
+	<div class="form-add-store">
+		<label>Address:</label>
+		<input id="address" placeholder="Ex: 706 Rosewood Dr, Palo Alto, CA" type="text" formControlName="address">
+	</div>
+
+	<div class="form-add-store">
+		<label>Google Maps Link:</label>
+		<input id="googlemaps" placeholder="Ex: https://goo.gl/maps/HDDgTHh14mS74adg9" type="text" formControlName="googlemaps_link">
+	</div>
+
+	<div class="form-add-store">
+		<label>Country:</label>
+		<select id="country" class="select-css" formControlName="country">
+			<option *ngFor="let country of countries" [ngValue]="country.url">
+				{{ country.name }}
+			</option>
+		</select>
+	</div>
+
+	<div class="form-add-store">
+		<label>Image</label>
+		<label for="image" class="custom-file-upload">
+			<i class="fa fa-cloud-upload"></i> Upload image
+		</label>
+		<input id="image" type="file" (change)="onFileChanged($event)" formControlName="picture">
+		<p> {{ fileName }} </p>
+	</div>
+</section>
+
+
 <section id="add-store" class="add-your-store">
 	<div class="container">
 		<div class="add-your-store-txt">
@@ -9,6 +51,46 @@
 			</p>
 		</div>
 	</div>
+	<section class='form'>
+		<div class="form-add-store">
+			<label>Name:</label>
+			<input id="store-name" placeholder="Ex: Cardano Software Factory" type="text" formControlName="name">
+		</div>
+
+		<div class="form-add-store">
+			<label>Website:</label>
+			<input id="website" placeholder="Ex: https://cardansoftware.com" type="text" formControlName="website">
+		</div>
+
+		<div class="form-add-store">
+			<label>Address:</label>
+			<input id="address" placeholder="Ex: 706 Rosewood Dr, Palo Alto, CA" type="text" formControlName="address">
+		</div>
+
+		<div class="form-add-store">
+			<label>Google Maps Link:</label>
+			<input id="googlemaps" placeholder="Ex: https://goo.gl/maps/HDDgTHh14mS74adg9" type="text" formControlName="googlemaps_link">
+		</div>
+
+		<div class="form-add-store">
+			<label>Country:</label>
+			<select id="country" class="select-css" formControlName="country">
+				<option *ngFor="let country of countries" [ngValue]="country.url">
+					{{ country.name }}
+				</option>
+			</select>
+		</div>
+
+		<div class="form-add-store">
+			<label>Image</label>
+			<label for="image" class="custom-file-upload">
+				<i class="fa fa-cloud-upload"></i> Upload image
+			</label>
+			<input id="image" type="file" (change)="onFileChanged($event)" formControlName="picture">
+			<p> {{ fileName }} </p>
+		</div>
+	</section>
+	
 	<form [formGroup]="addStoreForm" (ngSubmit)="onSubmit()">
 		<div class="add-your-store-box">			
 			<div class="add-your-store-form">
