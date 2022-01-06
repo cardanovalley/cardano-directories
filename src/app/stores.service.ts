@@ -30,7 +30,6 @@ export class StoresService {
       }),
       catchError((err) => {
         if (err.status === 0 && this.attempts === 0) {
-          debugger;
           this.attempts += 1;
           return this.getStores(currentUrl)
         } else {

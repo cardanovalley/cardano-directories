@@ -80,7 +80,5 @@ export class AddYourStoreComponent {
     }
 
     this.postStore(myFormData);
-
-    console.log(myFormData);
   }
 }
